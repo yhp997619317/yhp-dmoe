@@ -1,0 +1,499 @@
+<!doctype html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>FGALE DEFI</title>
+        <link rel="stylesheet" href="static/css/global.css">
+        
+        
+    </head>
+
+    <body>
+        <div class="app">
+            <header class="">
+                <div class="container">
+                    <a href="" class="logo">
+                <img src="static/images/logo.png" alt="">
+            </a>
+                    <nav>
+                        <a href="javascript:window.open('https://justswap.org/?lang=en-US#/scan/detail/trx/TNoCREgjXqyu4nT8bKX3gGYCP4BLnaFLH8');" target="_blank">Trade FGA</a>
+                        <a href="FGA_audit_report.pdf" target="_blank">Audit report</a>
+                    </nav>
+                    <div class="header__right">
+                       <div href="" class="lang">en <img src="static/images/arrow.svg" alt="">
+                            <div>
+                                <a href="">en</a>
+                                <a href="cn.html">中文</a>
+                      
+                            </div>
+                        </div> 
+                        <div class="soc">
+                            <a href=""><img src="static/images/twiter.svg" alt=""></a>
+                            <a href="javascript:window.open('https://t.me/FGAledeficom');" target="_blank"><img src="static/images/telegram.svg" alt=""></a>
+                        </div>
+                        <button class="button">[user ? login : 'connect to wallet']</button>
+                    </div>
+                    <button class="burger">
+                <img class="menu-disable" src="static/images/menu.svg" alt="">
+                <img class="menu-open" src="static/images/close.svg" alt="">
+            </button>
+                    <div class="header__menu">
+                        <nav>
+                            <a href="javascript:window.open('https://justswap.org/?lang=en-US#/scan/detail/trx/TNoCREgjXqyu4nT8bKX3gGYCP4BLnaFLH8');" target="_blank">Trade FGA</a>
+                            <a href="FGA_audit_report.pdf" target="_blank">Audit report</a>
+                            <div href="" class="lang">en <img src="static/images/arrow.svg" alt="">
+                                <div>
+                                  <a href="">en</a>
+                                <a href="cn.html">中文</a>
+                                </div>
+                            </div>
+                            <div class="soc">
+                                <a href=""><img src="static/images/twiter.svg" alt=""></a>
+                                <a href="#"><img src="static/images/telegram.svg" alt=""></a>
+                            </div>
+                            <button class="button">[user ? login : 'connect to wallet']</button>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <div class="slider">
+                <div class="container">
+                    <div class="slider__left">
+                        <h3>level [levelData.currentLevel] / [levelData.totalLevel]</h3>
+                        <h2>Stake Anytime, Unstake Anytime, Get Rewards Instantly.</h2>
+                        <h4>The contract has passed a security audit and only you can withdraw the principal and earnings.</h4>
+                        <div class="stat">
+                            <div class="stat__item">
+                                <h6>TOKEN VALUE AT THE MOMENT</h6>
+
+                                <div>
+                                    <h5>1 FGA</h5>
+                                    <div>
+                                        <h5>~ [price_token_trx] trx</h5>
+                                        <h5>~ [price_token] usdt</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat__item">
+                                <h6>TOTAL STAKED NOW</h6>
+                                <h5>[totalMined] trx</h5>
+                                <h5>[LP_totalMined] FGA/TRX LP</h5>
+                            </div>
+                    </div>
+                         <div class="stat">
+                            <div class="stat__item">
+                        <a href="" style="min-width: 230px;" class="button" data-open-modal="">TRX details</a>
+                            </div>
+                            <div class="stat__item">
+                        <a href="" style="min-width: 230px;" class="button" data-open-modal2="">FGA/TRX LP details</a>
+                            </div>
+                    </div>
+                    </div>
+                    <div class="slider__right">
+                        <img src="static/images/slider.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mining" style="position: relative; z-index: 12;">
+                <div class="container">
+                    <h2>Open Source Contract + Professional Company Audit</h2>
+                    <h2>Stake TRX Get FGA</h2>
+                    <div class="panel">
+                        <div class="panel__left">
+                            <h3>Your <br> TRX balance</h3>
+                            <button class="button">[user ? balance+' TRX' : 'login']</button>
+                        </div>
+                        <div class="panel__content">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <div class="form-group__header">
+                                            <label>enter the stake amount</label>
+                                            <span>Min: <b>100 TRX</b></span>
+                                        </div>
+                                        <div class="input">
+                                            <input v-model="amount" type="text">
+                                            <span class="max" @click="setAmountMax">max</span>
+                                            <button>TRX</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <button class="button w100" @click="freeze">stake</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="calc-result">
+                                        <label class="w100">profitability</label>
+                                        <div class="calc-result__item">
+                                            <h3>HOUR</h3>
+                                            <div>
+                                                <b>[parseFloat(get_day(amount)/24).Crop(4)] FGA</b>
+                                                <span>~ [parseFloat(get_day(amount)/24 * price_token).Crop(4)] USD</span>
+                                            </div>
+                                        </div>
+                                        <div class="calc-result__item">
+                                            <h3>Day</h3>
+                                            <div>
+                                                <b>[parseFloat(get_day(amount)).Crop(4)] FGA</b>
+                                                <span>~ [parseFloat(get_day(amount) * price_token).Crop(4)] USD</span>
+                                            </div>
+                                        </div>
+                                        <div class="calc-result__item">
+                                            <h3>10 days</h3>
+                                            <div>
+                                                <b>[parseFloat(get_day(amount) * 10).Crop(4)] FGA</b>
+                                                <span>~ [parseFloat(get_day(amount)* 10 * price_token).Crop(4)] USD</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel__left">
+                            <h4>YOUR STAKE</h4>
+                            <h2>[myFreeze.amount] TRX</h2>
+                            <button class="button" @click.prevent="unfreeze">UNSTAKE</button>
+                        </div>
+                        <div class="panel__content">
+                            <div class="row alig-center">
+                                <div class="col">
+                                    <div class="balance">
+                                        <div class="balance__icon">
+                                            <img src="static/images/icon.png" style="height: 98px" alt="icon"></div>
+                                        <div class="balance__info">
+                                            <h4>FGA TOKEN BALANCE</h4>
+                                            <h3>[parseFloat(myTokenBalance.amount).Crop(6)] FGA</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col text-right">
+                                    <button class="button r-w" style="margin-left: auto" @click.prevent="getToken">withdraw tokens</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="calc-result">
+                                        <div class="calc-result__item">
+                                            <h3>HOUR</h3>
+                                            <div>
+                                                <b>[parseFloat(get_day(myFreeze.amount)/24).Crop(4)] FGA</b>
+                                                <span>~ [parseFloat(get_day(myFreeze.amount)/24 * price_token).Crop(4)] USD</span>
+                                            </div>
+                                        </div>
+                                        <div class="calc-result__item">
+                                            <h3>Day</h3>
+                                            <div>
+                                                <b>[parseFloat(get_day(myFreeze.amount)).Crop(4)] FGA</b>
+                                                <span>~ [parseFloat(get_day(myFreeze.amount) * price_token).Crop(4)] USD</span>
+                                            </div>
+                                        </div>
+                                        <div class="calc-result__item">
+                                            <h3>10 days</h3>
+                                            <div>
+                                                <b>[parseFloat(get_day(myFreeze.amount) * 10).Crop(4)] FGA</b>
+                                                <span>~ [parseFloat(get_day(myFreeze.amount)* 10 * price_token).Crop(4)] USD</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="mining" style="position: relative; z-index: 12;">
+                <div class="container">
+                    <h2>STAKE FGA/TRX LP GET FGA</h2>
+                    <h2>There is no service charge.</h2>
+                    <div class="panel">
+                        <div class="panel__left">
+                            <h3>Your <br> FGA/TRX LP balance</h3>
+                            <button class="button">[user ? LP_balance+' FGA/TRX LP' : 'login']</button>
+                        </div>
+                        <div class="panel__content">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <div class="form-group__header">
+                                            <label>enter the stake amount</label>
+                                        </div>
+                                        <div class="input">
+                                            <input v-model="LP_amount" type="text">
+                                            <span class="max" @click="setAmountMax_LP">max</span>
+                                            <button>FGALP</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <button class="button w100" @click="freeze_LP">stake</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="calc-result">
+                                        <label class="w100">profitability</label>
+                                        <div class="calc-result__item">
+                                            <h3>HOUR</h3>
+                                            <div>
+                                                <b>[parseFloat(get_day_LP(LP_amount)/24).Crop(4)] FGA</b>
+                                                <span>~ [parseFloat(get_day_LP(LP_amount)/24 * price_token).Crop(4)] USD</span>
+                                            </div>
+                                        </div>
+                                        <div class="calc-result__item">
+                                            <h3>Day</h3>
+                                            <div>
+                                                <b>[parseFloat(get_day_LP(LP_amount)).Crop(4)] FGA</b>
+                                                <span>~ [parseFloat(get_day_LP(LP_amount) * price_token).Crop(4)] USD</span>
+                                            </div>
+                                        </div>
+                                        <div class="calc-result__item">
+                                            <h3>10 days</h3>
+                                            <div>
+                                                <b>[parseFloat(get_day_LP(LP_amount) * 10).Crop(4)] FGA</b>
+                                                <span>~ [parseFloat(get_day_LP(LP_amount)* 10 * price_token).Crop(4)] USD</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel__left">
+                            <h4>YOUR STAKE</h4>
+                            <h2>[LP_myFreeze.amount] FGALP</h2>
+                            <button class="button" @click.prevent="unfreeze_LP">UNSTAKE</button>
+                        </div>
+                        <div class="panel__content">
+                            <div class="row alig-center">
+                                <div class="col">
+                                    <div class="balance">
+                                        <div class="balance__icon">
+                                            <img src="static/images/icon.png" style="height: 98px" alt="icon"></div>
+                                        <div class="balance__info">
+                                            <h4>FGALE TOKEN BALANCE</h4>
+                                            <h3>[parseFloat(LP_myTokenBalance.amount).Crop(6)] FGA</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col text-right">
+                                    <button class="button r-w" style="margin-left: auto" @click.prevent="getToken_LP">withdraw tokens</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="calc-result">
+                                        <div class="calc-result__item">
+                                            <h3>HOUR</h3>
+                                            <div>
+                                                <b>[parseFloat(get_day_LP(LP_myFreeze.amount)/24).Crop(4)] FGA</b>
+                                                <span>~ [parseFloat(get_day_LP(LP_myFreeze.amount)/24 * price_token).Crop(4)] USD</span>
+                                            </div>
+                                        </div>
+                                        <div class="calc-result__item">
+                                            <h3>Day</h3>
+                                            <div>
+                                                <b>[parseFloat(get_day_LP(LP_myFreeze.amount)).Crop(4)] FGA</b>
+                                                <span>~ [parseFloat(get_day_LP(LP_myFreeze.amount) * price_token).Crop(4)] USD</span>
+                                            </div>
+                                        </div>
+                                        <div class="calc-result__item">
+                                            <h3>10 days</h3>
+                                            <div>
+                                                <b>[parseFloat(get_day_LP(LP_myFreeze.amount) * 10).Crop(4)] FGA</b>
+                                                <span>~ [parseFloat(get_day_LP(LP_myFreeze.amount)* 10 * price_token).Crop(4)] USD</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="referral">
+                <div class="container">
+                    <h2>INCOME FROM TRX REFERRALS</h2>
+                    <div class="panel">
+                        <div class="panel__left">
+                            <h4>AVAILABLE REWARD</h4>
+                            <h2>[referralMoney] <span>FGA</span></h2>
+                            <button class="button" @click.prevent="getToken">withdraw</button>
+                            <div class="panel__left-footer">
+                                <h4>total referrals : <b>[count_ref]</b></h4>
+                            </div>
+                        </div>
+                        <div class="panel__content">
+                            <label>your referral link</label>
+                            <form action="">
+                                <input type="text" id="ref" :value="ref_link">
+                                <button class="button" @click.prevent="copy">copy link</button>
+                            </form>
+                            <p>With this referral link, you can invite new users and receive FGA tokens as rewards</p>
+                            <h6>THE REWARD IS 10 % OF THE FGA MINED BY YOUR REFERRALS</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="referral">
+                <div class="container">
+                    <h2>INCOME FROM FGA/TRX LP referrals</h2>
+                    <div class="panel">
+                        <div class="panel__left">
+                            <h4>AVAILABLE REWARD</h4>
+                            <h2>[LP_referralMoney] <span>FGA</span></h2>
+                            <button class="button" @click.prevent="getToken_LP">withdraw</button>
+                            <div class="panel__left-footer">
+                                <h4>total referrals : <b>[LP_count_ref]</b></h4>
+                            </div>
+                        </div>
+                        <div class="panel__content">
+                            <label>your referral link</label>
+                            <form action="">
+                                <input type="text" id="ref" :value="ref_link">
+                                <button class="button" @click.prevent="copy">copy link</button>
+                            </form>
+                            <p>With this referral link, you can invite new users and receive FGA tokens as rewards</p>
+                            <h6>THE REWARD IS 10 % OF THE FGA MINED BY YOUR REFERRALS</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="services">
+                <div class="container">
+                    <h2>FGALE TRON platform services</h2>
+                    <div class="services__list">
+                        <div class="services__list-item _coming">
+                            <img src="static/images/lb.png" alt="">
+                            <div>
+                                <div class="services__list-name">Stay tuned</div>
+                                <div class="services__list-status">coming soon</div>
+                            </div>
+                        </div>
+                        <div class="services__list-item _coming">
+                            <img src="static/images/lb.png" alt="">
+                            <div>
+                                <div class="services__list-name">Stay tuned</div>
+                                <div class="services__list-status">coming soon</div>
+                            </div>
+                        </div>
+                        <div class="services__list-item _coming">
+                            <img src="static/images/lb.png" alt="">
+                            <div>
+                                <div class="services__list-name">Stay tuned</div>
+                                <div class="services__list-status">coming soon</div>
+                            </div>
+                        </div>
+                        <div class="services__list-item _coming">
+                            <img src="static/images/lb.png" alt="">
+                            <div>
+                                <div class="services__list-name">Stay tuned</div>
+                                <div class="services__list-status">coming soon</div>
+                            </div>
+                        </div>
+                        <div class="services__list-item _coming">
+                            <img src="static/images/lb.png" alt="">
+                            <div>
+                                <div class="services__list-name">Stay tuned</div>
+                                <div class="services__list-status">coming soon</div>
+                            </div>
+                        </div>
+                        <div class="services__list-item _coming">
+                            <img src="static/images/lb.png" alt="">
+                            <div>
+                                <div class="services__list-name">Stay tuned</div>
+                                <div class="services__list-status">coming soon</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+            </footer>
+
+            <div class="modal" id="m1">
+                <div class="modal__container" id="c1">
+                    <h3>MINING OF TOKENS</h3>
+                    <p>FGALE tokens can be mined by staking your TRX. The user can stake TRX and unstake the entire amount at any time. The mining of tokens is limited to 162,000,000 FGA and divided into 9 mining levels (LEVELS). Each LEVEL is limited to
+                        a certain number of tokens.</p>
+                    <h3>ACCRUING OF TOKENS</h3>
+                    <p>FGA tokens are credited to your account in real-time. The number of tokens awarded for each TRX staked fixed for each level. For example, at LEVEL 1, you will be credited with 0.05 FGA per day for each TRX staked. That is if you have
+                        a deposit of 1000 TRX means at the 1st level you will receive 50 FGALE tokens per day.</p>
+                    <h3>WHAT IS THE USE OF FGA TOKENS</h3>
+                    <p>You can withdraw the received FGALE tokens to your wallet at any time. The exchange of FGALE tokens for TRX will be available on the JustSwap platform. The price of mined tokens can vary over time. It depends on factors such as demand
+                        as well as on the total amount of mined FGA tokens.</p>
+                    <h3>NOTE TO FGA TOKEN USERS</h3>
+                    <p>Total FGA: 210,000,000. Stake TRK mining 162,000,000. Stake FGA/TRX LP mining 45,000,000.The team reserved 3,000,000 pieces to inject liquidity and stabilize the rate of return.The pledge TRX will charge 10% of the principal as commission fee, of which 20% will be used for the daily maintenance of the platform and 80% will be used for the value management of the token, so as to stabilize the rate of return. FGA/TRX LP pools are free of commission.</p>
+                    <h3>FGALE TOKEN MINING TABLE</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>level</td>
+                                <td>NUMBER OF FGA TOKENS</td>
+                                <td>EARNINGS IN 24 HOURS</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(s , key) in listlevel" :key="key">
+                                <td>[key +1]</td>
+                                <td>[s.amount]</td>
+                                <td>[s.day] FGA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal" id="m2">
+                <div class="modal__container" id="c2">
+                    <h3>MINING OF TOKENS</h3>
+                    <p>FGALE tokens can be mined by staking your FGA/TRX LP. The user can stake FGA/TRX LP and unstake the entire amount at any time. The mining of tokens is limited to 45,000,000 FGA and divided into 9 mining levels (LEVELS). Each LEVEL is limited to
+                        a certain number of tokens.</p>
+                    <h3>ACCRUING OF TOKENS</h3>
+                    <p>FGA tokens are credited to your account in real-time. The number of tokens awarded for each TRX staked fixed for each level. For example, at LEVEL 1, you will be credited with 0.2 FGA per day for each TRX staked. That is if you have
+                        a deposit of 1000 TRX/FGA LP TOKEN means at the 1st level you will receive 200 FGALE tokens per day.</p>
+                    <h3>WHAT IS THE USE OF FGALE TOKENS</h3>
+                    <p>You can withdraw the received FGALE tokens to your wallet at any time. The exchange of FGALE tokens for TRX will be available on the JustSwap platform. The price of mined tokens can vary over time. It depends on factors such as demand
+                        as well as on the total amount of mined FGA tokens.</p>
+                    <h3>NOTE TO FGA TOKEN USERS</h3>
+                    <p>Total FGA: 210,000,000. Stake TRK mining 162,000,000. Stake FGA/TRX LP mining 45,000,000.The team reserved 3,000,000 pieces to inject liquidity and stabilize the rate of return.The pledge TRX will charge 10% of the principal as commission fee, of which 20% will be used for the daily maintenance of the platform and 80% will be used for the value management of the token, so as to stabilize the rate of return. FGA/TRX LP pools are free of commission.</p>
+                    <h3>FGALE TOKEN MINING TABLE</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>level</td>
+                                <td>NUMBER OF FGA TOKENS</td>
+                                <td>EARNINGS IN 24 HOURS</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(s , key) in LP_listlevel" :key="key">
+                                <td>[key +1]</td>
+                                <td>[s.amount]</td>
+                                <td>[s.day] FGA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="static/js/jquery-3.5.1.min.js"></script>
+        <script src="static/js/vue.min.js"></script>
+        <script src="static/js/main-1234.js"></script>
+        <div style="display:none">
+        <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279409884'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279409884' type='text/javascript'%3E%3C/script%3E"));</script>
+        </div>
+    </body>
+
+    </html>
